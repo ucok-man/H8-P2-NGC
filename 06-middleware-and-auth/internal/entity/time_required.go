@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-var ErrInvalidRuntimeFormat = errors.New("invalid runtime format")
+var ErrInvalidTimeRequired = errors.New("invalid time required format (n mins)")
 
 type TimeRequired int
 
@@ -20,18 +20,18 @@ func (tr TimeRequired) MarshalJSON() ([]byte, error) {
 func (tr *TimeRequired) UnmarshalJSON(jsonValue []byte) error {
 	unquotedJSONValue, err := strconv.Unquote(string(jsonValue))
 	if err != nil {
-		return ErrInvalidRuntimeFormat
+		return ErrInvalidTimeRequired
 	}
 
 	part := strings.Split(unquotedJSONValue, " ")
 
 	if len(part) != 2 || part[1] != "mins" {
-		return ErrInvalidRuntimeFormat
+		return ErrInvalidTimeRequired
 	}
 
 	i, err := strconv.Atoi(part[0])
 	if err != nil {
-		return ErrInvalidRuntimeFormat
+		return ErrInvalidTimeRequired
 	}
 
 	*tr = TimeRequired(i)
