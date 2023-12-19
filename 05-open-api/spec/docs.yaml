@@ -1,0 +1,41 @@
+openapi: "3.0.2"
+info:
+  title: Avenggers REST API
+  description: API documentation for Avenggers API
+  contact:
+    name: ucok-man
+    email: ucokkocu411@gmail.com
+  version: "1.0.0"
+servers:
+  - url: http://localhost:8000
+    description: development server
+paths:
+  /crimecases:
+    get:
+      tags:
+        - crimecases
+      description: Returns all crime case from the source
+      responses:
+        "200":
+          description: Object containing message and data list of crime case.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    default: "OK"
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        "crime_case_id":
+                          type: integer
+                          default: 1
+                  
+
+
+
+                
