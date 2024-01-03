@@ -1,0 +1,2 @@
+Untuk saya, lebih suka pake echo karena mudah untuk di custom.
+Dan untuk kebutuhan custom nya semua di sediakan di Object utamanya.
