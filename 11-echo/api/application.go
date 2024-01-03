@@ -31,6 +31,7 @@ func New() *Application {
 	if err != nil {
 		if err, ok := err.(config.ErrorMissingValue); ok {
 			config.ShowHelp(err.Listenv, err.Errors)
+			os.Exit(1)
 		}
 		app.echo.Logger.Fatal(err, "error initializing config", nil)
 	}

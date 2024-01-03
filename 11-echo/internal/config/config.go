@@ -51,7 +51,6 @@ func ShowHelp(listenv []string, errors []error) {
 		fmt.Fprintln(flag.CommandLine.Output(), env)
 	}
 	fmt.Fprintln(flag.CommandLine.Output())
-	os.Exit(1)
 }
 
 func New() (*Config, error) {
